@@ -17,7 +17,7 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var oracledb = require('oracledb')
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT;
 var connectionStr = process.env.DBAAS_DEFAULT_CONNECT_DESCRIPTOR;
 var username = process.env.DBAAS_USER_NAME;
 var password = process.env.DBAAS_USER_PASSWORD;
