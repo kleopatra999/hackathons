@@ -5,6 +5,7 @@ var http = require('http')
 var express = require('express')
 var bodyParser = require('body-parser')
   
+var port = process.env.PORT;
 
 var app = express()
 
@@ -24,7 +25,7 @@ require('./scripts/API/userAPI.js')(app)
 
 
 
-app.listen(3012, function() {
-    console.log('aOne Step12 listening on port 3012')
+app.listen(port, function() {
+    console.log('aOne Step12 listening on port ' + port)
 
 });
