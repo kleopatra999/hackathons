@@ -1,0 +1,96 @@
+/* css from previous step */
+.item-price {
+
+  font-size: 30px;
+  font-weight: 30;
+  text-align: right;
+  
+}
+
+.item-title {
+font-size: 30px;
+  font-weight: 30;
+  text-align: left;
+
+}
+
+/*set background color of all anchor tags to black */
+a {
+  color: #121515;
+}
+
+
+/* Removes the space under navbar */
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+
+
+/* Imp. class - Sets the properties of the list group. line-height controls spacing between lines */
+
+.list-group .list-group-item .list-group-item-heading {
+
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 15px;
+}
+
+/* Contain the width to <=50%. Without this the item price and status overlap each other */
+
+.list-group .list-group-item .row-content {
+  
+  width: 50%;
+
+}
+.list-group .list-group-item .row-content {
+  float: left;
+  margin-top: 0;
+  width: 40%;
+  width: calc(100% - 160px);
+  height: 60px;
+}
+
+.list-group .list-group-item .payment {
+  float: right;
+  margin-top: 0;  
+  width: 85px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+/* Without float: right it would wrap to next line; w/o line-height the price and status tags 
+get too close to each other */
+.payment {
+  float: right;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+/* This is to keep the status symetrically aligned under price. Padding, right & bottom keep the text
+in the center of the box */
+.status{
+  font-size: 14px;
+  position: absolute;
+  padding: 5px;
+  right: 5px;
+  bottom: 5px;
+  width: 90px;
+  height: 25px; 
+}
+
+.list-group-item-text {
+  font-size: 12px;
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+
+.available {
+  background-color: #03a9f4;
+}
+.sold {
+  background-color: #9e9e9e;
+

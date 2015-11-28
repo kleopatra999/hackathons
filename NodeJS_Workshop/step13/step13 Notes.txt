@@ -1,0 +1,22 @@
+Step 13 Notes: 
+
+Goal - Add login/logout functionality. Current user info and services
+
+There are 2 pieces to user management. 1- The auth service and controller which is used for user registration, login and password change, and 2 - the navController which listens for the user event broadcast by the rootscope
+
+
+
+1. Build user services in auth.js
+
+2. Write the controller logic for authController. 
+
+3. Build  views register.html and login.html
+
+4. Add routes for register and login in app.js
+
+5. move browse, login and register htmls to /views
+
+6. Include ng-animate and toaster scripts in index.html
+
+
+Pose a challenge - there is a complete page refresh each time you click an item. Make it go away.

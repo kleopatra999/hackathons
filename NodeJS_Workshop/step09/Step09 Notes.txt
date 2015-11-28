@@ -1,0 +1,21 @@
+Step 9 Notes:
+
+
+Split index.html into index and browse.html
+
+	Just remove the <ul> </ul> ng-repeat loop from index.html and put it in browse.html and surround it with a <div>. 
+
+Load angular-route.js through index.html. Just copy the angular.js line and replace it with angular-route.js
+
+
+Put the <div ng-view=""></div> in place of the ng-repeat <ul> list
+
+
+Modify app.js to add the app.config($routeprovider) piece. Make sure you added the ['ngRoute'] dependency in app.module at the top!
+
+
+Add some more routes in app.js and adding partials for other simple html pages
+
+---------
+
+Next, create nav.html and add ng-include in index.html. Note how navbar has different links for Browse, Login, Register etc. Create different partials and create routes in app.js

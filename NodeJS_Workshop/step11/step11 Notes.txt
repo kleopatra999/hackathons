@@ -1,0 +1,25 @@
+Step 11 Notes: 
+
+Goal - Start building the RHS top portion. Use services and $resource
+
+1. Change <ul> to <a tag with ng-href so each item in the list is a link. colors may be green when you hover since the css is not yet present. Just cut/paste the entire main.css from end-product or cut/paste the hover classes
+
+
+2. modify app.js to include new route for /browse/:itemId
+
+3. Make sure the api is working
+
+4. Break out the controller code and put it in a separate file browse.js under folder controllers. 
+5. Modify index.js to include browse.js
+6. Create a factory service for findItem
+	
+	a. Load angular-resource in index.js
+	b. Add ng-Resource dependency in angular.module
+	c. Create folder services under scripts and create item.js for item related services
+	d. Include item.js in index.html
+	e. Create service 'Item' in item.js and add code in controller to call it.
+
+7. Modify browse.html using $scope.selectedItem to populate rhs view. Note that panels for offers, comments are created but no code is added. Similarly, html/css for ADMIN and Make Offer are created	
+
+
+

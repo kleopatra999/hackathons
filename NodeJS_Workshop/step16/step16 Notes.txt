@@ -1,0 +1,21 @@
+Step 16 Notes: 
+
+Goal - Add 'edit item' and cancel post functionality
+
+
+
+1. Red admin dropdown under price tag appears only if logged in user is poster of item & item is 'available'
+
+2. Create 2 $scope models- isItemPoster and isAvailable that can then be used in ng-show directives
+	Hint: You just need 2 lines of code!
+
+3. Add ng-show directives and html in browse.html
+
+4. Next, add directives to ensure 'Make offer' button appears only if you are not the item poster and item is still availabe
+
+
+5. Now that view is in place, add edit item code to getItems service and itemController
+
+6. Create edit item modal and add ng-include directive to browse.html
+
+7. Finally, add cancelItem code in browse controller

@@ -1,0 +1,21 @@
+Step 15 Notes: 
+
+Goal - Add 'newItem' functionality
+
+
+
+1. Note that 'List stuff for sale' comes up only when user signs in. Add html in navbar.html with ng-show directives for it
+	(note to self - already existed from copy/paste. Remove from previous steps)
+
+
+2. Create a partials folder under views and create a post.html modal for new Items
+
+3. Add ng-include directives in nav.html
+
+4. Add code to getItems service to create  items
+
+5. Note that post.html uses its own controller - itemController so create a seperate item.js under controllers and add item controller code to create  items
+
+6. Make sure item.js is added to index
+
+I've removed the ng-show directive from the post.html div at the bottom since it seemed unnecessary

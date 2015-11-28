@@ -1,0 +1,23 @@
+Step 12 Notes: 
+
+Goal - Add offer and comments to RHS view. Create additional service and controllers
+
+First fix the 404 error for forSale.jpg by simply copying the file to /images
+
+1. Add offer data to rhs view
+		
+		a. Check offer api is working
+		b. create offer.js services
+		c. Make sure offer.js is loaded via index.html
+		d. add code to controller to call offer service and populate $scope model
+		e. Add proper html in browse.html
+
+
+2. Add comment data for viewing comments only
+
+	Same as above.
+
+
+3. Add code in browse.html to make comments	--- can't do that yet since it needs user data
+
+

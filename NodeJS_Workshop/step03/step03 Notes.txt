@@ -1,0 +1,5 @@
+step 03
+
+Goal: Build a RESTful api for the item table using the Oracle node driver
+
+		Use sample code on the Oracledb driver page on github
