@@ -32,7 +32,7 @@ app.get('/', function(req, res) {
  * the format our application can consume
  */
 
-app.get('/item', function(req, res) {
+app.get('/items', function(req, res) {
 
 	console.log('/items api called')
 
@@ -58,7 +58,7 @@ app.get('/item', function(req, res) {
 			console.log('sql executed')
 			console.log(result.rows);
 			doRelease(connection)
-			res.json(result.rows[1]);
+			res.json(result);
 		})
 
 	}) // end oracledb.getConnection
