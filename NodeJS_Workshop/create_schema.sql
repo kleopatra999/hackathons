@@ -207,7 +207,7 @@ Insert into OFFERS (OFFER_ID,ITEM_ID,OFFER_BY,OFFER_AMOUNT,OFFER_CREATE_DATE,OFF
 Insert into OFFERS (OFFER_ID,ITEM_ID,OFFER_BY,OFFER_AMOUNT,OFFER_CREATE_DATE,OFFER_STATUS) values (61,22,4,1500,to_date('20-JUL-15','DD-MON-RR'),null);
 REM INSERTING into USERS
 SET DEFINE OFF;
-Insert into USERS (USER_ID,USER_NAME,USER_PASSWORD,USER_EMAIL,USER_GRAVATAR) values (1,'Sunny Leone','ed49aa872a3651803b63153bd00b6e81ce90ceba','ssunny22@gmail.com','https://www.gravatar.com/avatar/f2adf4eb7c402614b43ec15042fcbe49.jpg?d=identicon');
+Insert into USERS (USER_ID,USER_NAME,USER_PASSWORD,USER_EMAIL,USER_GRAVATAR) values (1,'Jane Doe','ed49aa872a3651803b63153bd00b6e81ce90ceba','jdoe@gmail.com','https://www.gravatar.com/avatar/f2adf4eb7c402614b43ec15042fcbe49.jpg?d=identicon');
 Insert into USERS (USER_ID,USER_NAME,USER_PASSWORD,USER_EMAIL,USER_GRAVATAR) values (6,'Paul','4d42b635046885de21680306d550b07ae19ea970','pp@pp.pp','https://www.gravatar.com/avatar/0f4b2c92f1b04f9083caf68dbbc4cbe9.jpg?d=identicon');
 Insert into USERS (USER_ID,USER_NAME,USER_PASSWORD,USER_EMAIL,USER_GRAVATAR) values (11,'sweettiger21','f64de72f5c1bf254aad7e4bb6d4cb538114d043a','ant@aa.aa','https://www.gravatar.com/avatar/5e93f7e9a7d0eb976722076e5a34ebee.jpg?d=identicon');
 Insert into USERS (USER_ID,USER_NAME,USER_PASSWORD,USER_EMAIL,USER_GRAVATAR) values (12,'Jeremy','d93bab8ddc17101414e4778afd4f31f87ce0ba75','jj@jj.jj','https://www.gravatar.com/avatar/64b5cefbdbbbb10b091774a15368db2d.jpg?d=identicon');
