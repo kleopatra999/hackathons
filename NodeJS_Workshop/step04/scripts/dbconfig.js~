@@ -1,5 +1,0 @@
-module.exports= {
-user:"node",
-password:"node",
-connectString : "129.191.4.51/PDB1.metcsgse00170.oraclecloud.internal"
-};
