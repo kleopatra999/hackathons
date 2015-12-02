@@ -1,5 +1,3 @@
-
-
 /* In this step we take server.js from step 2 and build upon it to create the first restful api service*/
 
 /* things to watch in this step - 
@@ -8,7 +6,6 @@
 2. Make sure connect string, ip address etc are correct
 
 */
-
 
 'use strict';
 
