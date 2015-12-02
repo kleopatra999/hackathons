@@ -10,7 +10,6 @@ Then do itemAPI.js
 Explain absolute vs relative paths. Options to use NODE_PATH variable or app-module-path npm module
 */
 
-//var http = require('http')
 var express = require('express')
 var bodyParser = require('body-parser')
 
