@@ -1,9 +1,0 @@
-{
-  "services": [{
-     "identifier": "Hackathon DB",
-     "name": "HackathonDB",
-     "type": "DBAAS",
-     "username": "system",
-     "password": "Welcome1#"
-   }]
-}

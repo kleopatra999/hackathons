@@ -12,7 +12,6 @@
 
 'use strict';
 
-var http = require('http')
 var express = require('express')
 var bodyParser = require('body-parser')
 var oracledb = require('oracledb')
@@ -68,12 +67,8 @@ oracledb.getConnection(
         console.log(result.rows);
         doRelease(connection)
         res.json(result.rows[1]);
-})
-
-
-
-
-      }) //end oracledb.getConnection
+   })
+}) //end oracledb.getConnection
 
 function doRelease(connection){
 	 connection.release(function(err){
@@ -82,10 +77,7 @@ function doRelease(connection){
 };  //end doRelease
 
 
-  });
-
-
-
+}); //end app.get('/items')
 
 app.listen(port, function() {
     console.log('aOne step03 listening on port ' + port)

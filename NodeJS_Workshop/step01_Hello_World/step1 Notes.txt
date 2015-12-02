@@ -1,3 +1,3 @@
 Step 1
 
-Goal: Create a simple node.js http server that returns 'hello world'
+Goal: Create a simple node.js http server that returns 'Hello World'
