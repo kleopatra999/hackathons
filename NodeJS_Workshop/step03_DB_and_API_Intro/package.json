@@ -8,7 +8,8 @@
   "main": "server.js",
   "scripts":{ 
     "start": "node server.js",
-    "prepublish": "zip -r workshop-dist.zip manifest.json *.js *.html node_modules"
+    "preinstall": "rm -f -R node_modules workshop-dist.zip",
+    "prepublish": "zip -r workshop-dist.zip manifest.json *.js *.html node_modules && npm install oracledb"
   },
   "engines": {
     "node": ">=0.10.0"
