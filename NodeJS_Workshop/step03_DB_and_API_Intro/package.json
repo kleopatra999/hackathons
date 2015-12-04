@@ -1,5 +1,5 @@
 {
-  "name": "DBandAPIIntro",
+  "name": "sampleApp",
   "version": "0.0.1",
   "dependencies": {
     "body-parser": "1.12.4",
@@ -12,7 +12,7 @@
   "scripts":{ 
     "start": "node server.js",
     "preinstall": "rm -f -R node_modules workshop-dist.zip",
-    "prepublish": "zip -r workshop-dist.zip manifest.json *.js *.html node_modules && npm install oracledb"
+    "prepublish": "zip -r workshop-dist.zip manifest.json *.js *.html *.css node_modules scripts images views && npm install oracledb"
   },
   "engines": {
     "node": ">=0.10.0"
