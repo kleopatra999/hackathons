@@ -12,7 +12,7 @@
   "scripts":{ 
     "start": "node server.js",
     "preinstall": "rm -f -R node_modules workshop-dist.zip",
-    "prepublish": "zip -r workshop-dist.zip manifest.json *.js *.html *.css node_modules scripts images views && npm install oracledb"
+    "prepublish": "zip -r workshop-dist.zip manifest.json *.js *.html *.css node_modules scripts images views"
   },
   "engines": {
     "node": ">=0.10.0"
