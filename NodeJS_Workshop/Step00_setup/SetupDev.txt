@@ -1,0 +1,8 @@
+Here is the general OUtline to setting up the Developer Environment for the Hackathon
+
+1) Ignore the startup error within eclipse - it is something to do with networking and is a bug within the VM, it does NOT affect the running of Eclipse
+2) Set the Preferences --> GIT remote timeout to 300 seconds
+3) Use the text file on the desktop to download the GIT repo into eclipse
+4) Explore the cloud service to get the IP address of your NodeDB instance and the Pluggable DB connection string
+5) Update the environmentVariables.sh with your IP address and the DB connection string
+6) Run the environment variables locally using $source environmentVariables.sh form a terminal window

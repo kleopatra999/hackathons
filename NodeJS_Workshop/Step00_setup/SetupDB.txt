@@ -1,0 +1,14 @@
+Here is the general outline to the steps needed to setup the DB instances for the Hackathon
+
+On Each Provisioned Account
+1) Create DB instance called NodeDB with local storage (1 OCPU, Enterprise Edition with a Pluggable Database)
+2) The password for the NodeDB is to be Welcome1#
+2) Wait for DB to be provisioned (make note of the IP and connection string)
+3) On the Compute side enable the DB listener for that DB instance
+4) Connect in your SQl Editor of choice - I used a local instance of SQL Developer
+5) Connect it into the system account of the Pluggable DB (user: system, password: Welcome1#)
+6) Run the create_users.sql script. This will provision both a demouser and a devuser for use in the hackathon
+7) Both passwords are set to the same Welcome1#
+8) Login to devuser account on the pluggable DB (user:devuser, password: Welcome1#)
+9) Run the setup_applicaiton.sql script - this will ensure all tables and test data is created in that schema
+10) Repeat steps 8 and 9 with the demouser
