@@ -1,71 +1,59 @@
 'use strict';
 
-app.factory('Auth', ['$resource',
-    function($resource) {
+app.factory('Auth', [ '$resource', function($resource) {
 
-        return {
-            newUser: $resource('/user', {}, {
-                method: 'POST'
-            }),
+	return {
+		newUser : $resource('/user', {}, {
+			method : 'POST'
+		}),
 
-            login: $resource('/login/:email/:pw', {}, {
-                method: 'GET',
-                isArray: false
-            }),
+		login : $resource('/login/:email/:pw', {}, {
+			method : 'GET',
+			isArray : false
+		}),
 
-
-        };
-    }
-]);
-
+	};
+} ]);
 
 app.factory('User', function($http) {
 
-    var currentUser = {};
+	var currentUser = {};
 
+	var User = {
 
-    var User = {
+		getCurrentUser : function() {
 
-        getCurrentUser: function() {
+			return currentUser;
+		},
 
-            return currentUser;
-        },
+		registerUser : function(user) {
 
-        registerUser: function(user) {
+			return $http.post('/user', user)
 
-            return $http.post('/user', user)
+		},
 
-        },
+		setCurrentUser : function(user) {
 
+			currentUser.name = user.name;
+			currentUser.gravatar = user.gravatar
+			currentUser.uid = user.uid
+			currentUser.email = user.email
+			currentUser.signedIn = user.signedIn
 
-        setCurrentUser: function(user) {
+		},
 
+		isSignedIn : function() {
+			if (currentUser.signedIn) {
+				return true
+			}
+			return false;
+		},
 
-            currentUser.name = user.name;
-            currentUser.gravatar = user.gravatar
-            currentUser.uid = user.uid
-            currentUser.email = user.email
-            currentUser.signedIn = user.signedIn
+		changePassword : function(payload) {
+			return $http.post('/userpass', payload)
+		}
 
+	}
 
-
-        },
-
-        isSignedIn: function() {
-            if (currentUser.signedIn) {
-                return true
-            }
-            return false;
-        },
-
-        changePassword: function(payload) {
-            return $http.post('/userpass', payload)
-        }
-
-
-
-
-    }
-
-    return User;
+	return User;
 });

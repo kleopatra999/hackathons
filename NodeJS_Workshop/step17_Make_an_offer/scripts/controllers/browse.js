@@ -1,117 +1,117 @@
 'use strict';
 
-app.controller('browseController', function($http, $scope, $routeParams,$location, Item,Items, getItems,Auth,User, Comment, OfferSvc, Offer,toaster) {
+app.controller('browseController', function($http, $scope, $routeParams, $location, Item, Items, getItems, Auth, User,
+		Comment, OfferSvc, Offer, toaster) {
 	$scope.searchItem = ''
-   /* get User info from auth (User) service */
-    var user = User.getCurrentUser()
-    $scope.uid = user.uid
-    $scope.currentUser = user.name
-    $scope.gravatar = user.gravatar
-    $scope.signedIn = user.signedIn
-/* This step: Replaced $http call with this array call from getItems service */
+	/* get User info from auth (User) service */
+	var user = User.getCurrentUser()
+	$scope.uid = user.uid
+	$scope.currentUser = user.name
+	$scope.gravatar = user.gravatar
+	$scope.signedIn = user.signedIn
+	/* This step: Replaced $http call with this array call from getItems service */
 
-    $scope.items = getItems.all;
-    $scope.listMode = true;
-    if ($routeParams.itemId) {
-        $scope.listMode = false;
-        Item.findItem({itemId: $routeParams.itemId}, function(item) {
-            	console.log('findItem returned----', item)
-            	//getItems.setSelectedItem(item)
-            	$scope.selectedItem = item;
+	$scope.items = getItems.all;
+	$scope.listMode = true;
+	if ($routeParams.itemId) {
+		$scope.listMode = false;
+		Item.findItem({
+			itemId : $routeParams.itemId
+		}, function(item) {
+			console.log('findItem returned----', item)
+			// getItems.setSelectedItem(item)
+			$scope.selectedItem = item;
 
-              /* added these 2 $scope models -------- */ 
-                $scope.isItemPoster = (item.ITEM_POSTED_BY == $scope.uid)
-                
-                $scope.isAvailable = (item.ITEM_STATUS == 'available')
-              /*----------------*/  
-               
-                console.log('Signed in=',$scope.signedIn)
-            	 console.log('selecteditem is', $scope.selectedItem)
-                    })
+			/* added these 2 $scope models -------- */
+			$scope.isItemPoster = (item.ITEM_POSTED_BY == $scope.uid)
 
-            $http.get('/offer/' + $routeParams.itemId).success(function(offers) {
-                    $scope.offers = offers
-                    console.log('offers for selecteditem=',offers)
-                        })
-             Comment.findComments({
-                        itemId: $routeParams.itemId
-                    }, function(comments) {
-                        $scope.comments = comments;
-                        console.log('comments are -', $scope.comments)
-                    })
-           
+			$scope.isAvailable = (item.ITEM_STATUS == 'available')
+			/*----------------*/
 
-            
-        //--- end Item.findItem
-    } //------end routeParams.itemId
+			console.log('Signed in=', $scope.signedIn)
+			console.log('selecteditem is', $scope.selectedItem)
+		})
 
-/* added here since this is part of the browse view and the browseController is in effect 
+		$http.get('/offer/' + $routeParams.itemId).success(function(offers) {
+			$scope.offers = offers
+			console.log('offers for selecteditem=', offers)
+		})
+		Comment.findComments({
+			itemId : $routeParams.itemId
+		}, function(comments) {
+			$scope.comments = comments;
+			console.log('comments are -', $scope.comments)
+		})
 
-Note that even though item status changes to cancelled, Admin button does not go away. Needs fix */
+		// --- end Item.findItem
+	} // ------end routeParams.itemId
 
-$scope.cancelItem = function(item) {
-        item.ITEM_STATUS = 'cancelled'
-        var url = '/item/' + item.ITEM_ID
-        var payload = {
-            p1: item.ITEM_TITLE,
-            p2: item.ITEM_DESC,
-            p3: item.ITEM_BOUGHT_BY,
-            p4: item.ITEM_PRICE,
-            p5: 'cancelled'
-        }
-        getItems.updateItemArray(item)
-        getItems.editItem(url, payload).success(function(status) {
+	/*
+	 * added here since this is part of the browse view and the browseController
+	 * is in effect
+	 * 
+	 * Note that even though item status changes to cancelled, Admin button does
+	 * not go away. Needs fix
+	 */
 
-            toaster.pop('success', "Item is updated.");
-            $location.path('/browse/' + item.ITEM_ID)
-        })
-    }
-   
-$scope.makeOffer = function(offer) {
-        $http.post('/newOffer', {
-                p1: $scope.selectedItem.ITEM_ID,
-                p2: $scope.uid,
-                p3: offer.amount
-            })
-            .success(function(response) {
-                $scope.offer = ''
-                Offer.findOffers({
-                    itemId: $scope.selectedItem.ITEM_ID
-                }, function(offers) {
-                    $scope.offers = offers;
-                })
-            })
+	$scope.cancelItem = function(item) {
+		item.ITEM_STATUS = 'cancelled'
+		var url = '/item/' + item.ITEM_ID
+		var payload = {
+			p1 : item.ITEM_TITLE,
+			p2 : item.ITEM_DESC,
+			p3 : item.ITEM_BOUGHT_BY,
+			p4 : item.ITEM_PRICE,
+			p5 : 'cancelled'
+		}
+		getItems.updateItemArray(item)
+		getItems.editItem(url, payload).success(function(status) {
 
+			toaster.pop('success', "Item is updated.");
+			$location.path('/browse/' + item.ITEM_ID)
+		})
+	}
 
-    };
+	$scope.makeOffer = function(offer) {
+		$http.post('/newOffer', {
+			p1 : $scope.selectedItem.ITEM_ID,
+			p2 : $scope.uid,
+			p3 : offer.amount
+		}).success(function(response) {
+			$scope.offer = ''
+			Offer.findOffers({
+				itemId : $scope.selectedItem.ITEM_ID
+			}, function(offers) {
+				$scope.offers = offers;
+			})
+		})
 
-   
- $scope.acceptOffer = function(offer) {
-        var offerUrl = '/offer/' + offer.OFFER_ID
-        var offerPayload = {
-            p1: 'accepted'
-        }
-        var selectedItem = $scope.selectedItem
-        OfferSvc.updateOffer(offerUrl, offerPayload).success(function(status) {
+	};
 
-            var itemUrl = '/item/' + selectedItem.ITEM_ID
-            var itemPayload = {
-                p1: selectedItem.ITEM_TITLE,
-                p2: selectedItem.ITEM_DESC,
-                p3: selectedItem.ITEM_BOUGHT_BY,
-                p4: selectedItem.ITEM_PRICE,
-                p5: 'sold'
-            }
-            selectedItem.ITEM_STATUS = 'sold'
-            getItems.updateItemArray(selectedItem)
-            getItems.editItem(itemUrl, itemPayload).success(function(status) {
-                $scope.isAvailable = false;
-                toaster.pop('success', "Offer accepted!");
-                $location.path('/browse/' + selectedItem.ITEM_ID)
-            })
-        })
-    }; //---end acceptOffer,
+	$scope.acceptOffer = function(offer) {
+		var offerUrl = '/offer/' + offer.OFFER_ID
+		var offerPayload = {
+			p1 : 'accepted'
+		}
+		var selectedItem = $scope.selectedItem
+		OfferSvc.updateOffer(offerUrl, offerPayload).success(function(status) {
 
- 
+			var itemUrl = '/item/' + selectedItem.ITEM_ID
+			var itemPayload = {
+				p1 : selectedItem.ITEM_TITLE,
+				p2 : selectedItem.ITEM_DESC,
+				p3 : selectedItem.ITEM_BOUGHT_BY,
+				p4 : selectedItem.ITEM_PRICE,
+				p5 : 'sold'
+			}
+			selectedItem.ITEM_STATUS = 'sold'
+			getItems.updateItemArray(selectedItem)
+			getItems.editItem(itemUrl, itemPayload).success(function(status) {
+				$scope.isAvailable = false;
+				toaster.pop('success', "Offer accepted!");
+				$location.path('/browse/' + selectedItem.ITEM_ID)
+			})
+		})
+	}; // ---end acceptOffer,
 
 });

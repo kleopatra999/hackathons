@@ -1,5 +1,5 @@
 var app = angular
-  .module('aOne', ['ngRoute','angularMoment','ngResource'])
+  .module('aOne', [ 'ngRoute', 'angularMoment', 'ngResource'])
   
 
 app.config(function ($routeProvider) {
