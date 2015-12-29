@@ -1,4 +1,0 @@
-
-Step 05
-
-Goal: Build a post API for items in itemAPI.js
