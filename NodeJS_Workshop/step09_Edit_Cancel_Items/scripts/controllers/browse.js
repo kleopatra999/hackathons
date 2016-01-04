@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('browseController', function($http, $scope, $routeParams, Item,Items, getItems,Auth,User, Comment) {
+app.controller('browseController', function($http, $scope, $routeParams, toaster, Item,Items, getItems,Auth,User, Comment) {
 	$scope.searchItem = ''
    /* get User info from auth (User) service */
     var user = User.getCurrentUser()
