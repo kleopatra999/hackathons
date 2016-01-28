@@ -13,6 +13,6 @@ app.get('/', function(req, res) {
 })
 
 app.listen(port, function() {
-	console.log('aOne step02 listening on port ' + port)
+	console.log('aOne step01 listening on port ' + port)
 
 });

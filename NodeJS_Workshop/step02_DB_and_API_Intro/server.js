@@ -73,6 +73,6 @@ app.get('/items', function(req, res) {
 });
 
 app.listen(port, function() {
-	console.log('aOne step03 listening on port ' + port)
+	console.log('aOne step02 listening on port ' + port)
 
 });

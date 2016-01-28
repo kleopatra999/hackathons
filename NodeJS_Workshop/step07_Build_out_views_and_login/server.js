@@ -26,6 +26,6 @@ require('./scripts/API/userAPI.js')(app)
 
 
 app.listen(port, function() {
-    console.log('aOne Step13 listening on port ' + port)
+    console.log('aOne Step07 listening on port ' + port)
 
 });

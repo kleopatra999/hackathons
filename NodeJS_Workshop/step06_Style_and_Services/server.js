@@ -21,6 +21,6 @@ require('./scripts/API/commentAPI.js')(app)
 require('./scripts/API/userAPI.js')(app)
 
 app.listen(port, function() {
-	console.log('aOne Step11 listening on port ' + port)
+	console.log('aOne Step06 listening on port ' + port)
 
 });
