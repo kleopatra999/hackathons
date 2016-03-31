@@ -90,7 +90,7 @@ module.exports = function(app) {
         //--------------start getAll items ---------------------
         app.get('/item', function(req, res, next) {
 
-            /*save new item in mongo */
+            /*save new item */
 
             oracledb.getConnection({
                     user: dbConfig.user,
