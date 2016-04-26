@@ -5,7 +5,7 @@ export USER_ID=$2
 export USER_PASSWORD=$3
 export APP_NAME=$4
 export ARCHIVE_FILE=$5
-export ARCHIVE_LOCAL=target/$ARCHIVE_FILE
+export ARCHIVE_LOCAL=$ARCHIVE_FILE
 export APAAS_HOST=apaas.us.oraclecloud.com
 
 # CREATE CONTAINER
